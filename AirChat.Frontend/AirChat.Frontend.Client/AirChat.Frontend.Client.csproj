@@ -13,4 +13,8 @@
   	<PackageReference Include="MudBlazor" Version="6.*" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\..\AirChat.ServiceClient\AirChat.ServiceClient.csproj" />
+  </ItemGroup>
+
 </Project>

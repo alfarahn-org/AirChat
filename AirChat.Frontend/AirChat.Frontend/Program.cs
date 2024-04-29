@@ -1,5 +1,6 @@
 using AirChat.Frontend.Client.Pages;
 using AirChat.Frontend.Components;
+using AirChat.ServiceClient.AirChat.API.Services;
 using MudBlazor.Services;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -9,7 +10,8 @@ builder.Services.AddRazorComponents()
     .AddInteractiveWebAssemblyComponents();
 
 builder.Services.AddMudServices();
-
+var client = new AirChatServiceClient(new HttpClient { BaseAddress = new Uri("https://localhost:7155") });
+builder.Services.AddSingleton(client);
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
