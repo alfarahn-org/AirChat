@@ -1,4 +1,5 @@
-using AirChat.ServiceClient.AirChat.API.Services;
+
+using AirChat.API.Services;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
 using MudBlazor.Services;
 

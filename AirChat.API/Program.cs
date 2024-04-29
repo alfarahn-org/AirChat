@@ -29,11 +29,10 @@ app.MapGet("/", () => "Hello from Hot Reload");
 
 
 app.MapGet("/messages", () => session);
-app.MapPost("/messages", (string name, string text) =>
+app.MapPost("/messages", (Message msg) =>
 {
-    var message = new Message(name, text, DateTime.Now);
-    session.Add(message);
-    return message;
+    session.Add(msg);
+    return msg;
 });
 
 app.Run();

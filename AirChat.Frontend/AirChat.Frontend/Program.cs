@@ -1,6 +1,6 @@
+using AirChat.API.Services;
 using AirChat.Frontend.Client.Pages;
 using AirChat.Frontend.Components;
-using AirChat.ServiceClient.AirChat.API.Services;
 using MudBlazor.Services;
 
 var builder = WebApplication.CreateBuilder(args);

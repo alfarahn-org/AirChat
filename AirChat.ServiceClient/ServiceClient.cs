@@ -1,15 +1,10 @@
-﻿namespace AirChat.ServiceClient
-{
-    using global::AirChat.Contract;
-    using System;
-    using System.Collections.Generic;
-    using System.Net.Http;
-    using System.Net.Http.Json;
-    using System.Threading.Tasks;
+﻿
+using global::AirChat.Contract;
+using System.Net.Http.Json;
 
-    namespace AirChat.API.Services
-    {
-        public class AirChatServiceClient
+namespace AirChat.API.Services
+{
+    public class AirChatServiceClient
         {
             private readonly HttpClient _httpClient;
 
@@ -33,4 +28,3 @@
         }
     }
 
-}
