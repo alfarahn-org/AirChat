@@ -12,7 +12,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="AirChat.Contract\AirChat.Contract.csproj" />
+    <ProjectReference Include="..\AirChat.Contract\AirChat.Contract.csproj" />
   </ItemGroup>
-
 </Project>
