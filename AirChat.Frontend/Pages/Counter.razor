@@ -1,20 +1,19 @@
 ﻿@page "/counter"
 @using AirChat.API.Services
 @using AirChat.Contract
-@rendermode InteractiveWebAssembly
 @inject AirChatServiceClient client;
 
-<MudPopoverProvider />
-<MudDialogProvider />
-<MudSnackbarProvider />
+<PageTitle>Counter</PageTitle>
+
+<h1>Counter</h1>
 
 <PageTitle>Counter New</PageTitle>
 
-<MudTextField @bind-Value="Name" Label="Type name" Variant="Variant.Outlined"></MudTextField>
-<MudTextField @bind-Value="Text" Label="Type message" Variant="Variant.Outlined"></MudTextField>
+<InputText @bind-Value="Name" Label="Type name" Variant="Variant.Outlined" ></InputText><br />
+<InputText @bind-Value="Text" Label="Type message" Variant="Variant.Outlined"></InputText><br />
 
-<MudButton Color="Color.Primary" Variant="Variant.Filled" @onclick="GetMessages">Get Messages</MudButton>
-<MudButton Color="Color.Primary" Variant="Variant.Filled" @onclick="PostMessage">Post Message</MudButton>
+<button Color="Color.Primary" Variant="Variant.Filled" @onclick="GetMessages">Get Messages</button><br />
+<button Color="Color.Primary" Variant="Variant.Filled" @onclick="PostMessage">Post Message</button>
 
 @foreach (var message in messages)
 {
