@@ -8,6 +8,8 @@
 <MudSnackbarProvider />
 
 <PageTitle>Counter New</PageTitle>
+<MudTextField @bind-Value="Name" Label="Outlined" Variant="Variant.Outlined"></MudTextField>
+<MudTextField @bind-Value="Text" Label="Outlined" Variant="Variant.Outlined"></MudTextField>
 
 <MudText Typo="Typo.h3" GutterBottom="true">This is </MudText>
 <MudText Class="mb-4">Current count: @currentCount</MudText>
@@ -15,6 +17,9 @@
 
 @code {
     private int currentCount = 0;
+
+    string Name;
+    string Text;
 
     private async void IncrementCount()
     {
