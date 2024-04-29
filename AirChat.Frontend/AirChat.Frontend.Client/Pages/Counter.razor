@@ -9,29 +9,34 @@
 <MudSnackbarProvider />
 
 <PageTitle>Counter New</PageTitle>
-<MudTextField @bind-Value="Name" Label="Outlined" Variant="Variant.Outlined"></MudTextField>
-<MudTextField @bind-Value="Text" Label="Outlined" Variant="Variant.Outlined"></MudTextField>
 
-<MudText Typo="Typo.h3" GutterBottom="true">This is </MudText>
-<MudText Class="mb-4">Current count: @currentCount</MudText>
-<MudButton Color="Color.Primary" Variant="Variant.Filled" @onclick="IncrementCount">Get Messages</MudButton>
+<MudTextField @bind-Value="Name" Label="Type name" Variant="Variant.Outlined"></MudTextField>
+<MudTextField @bind-Value="Text" Label="Type message" Variant="Variant.Outlined"></MudTextField>
+
+<MudButton Color="Color.Primary" Variant="Variant.Filled" @onclick="GetMessages">Get Messages</MudButton>
 <MudButton Color="Color.Primary" Variant="Variant.Filled" @onclick="PostMessage">Post Message</MudButton>
 
+@foreach (var message in messages)
+{
+    <p>@message.Name: @message.Text</p>
+}
+
+
 @code {
-    private int currentCount = 0;
 
     string Name;
     string Text;
+
+    List<Message> messages = new();
 
     private async void PostMessage()
     {
         await client.SendMessageAsync( Name, Text);
     }
 
-    private async void IncrementCount()
+    private async void GetMessages()
     {
-        var messages = await client.GetMessagesAsync();
-      
-        currentCount++;
+        messages = await client.GetMessagesAsync();
+        StateHasChanged();
     }
 }

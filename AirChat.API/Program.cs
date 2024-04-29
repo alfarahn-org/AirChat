@@ -1,6 +1,7 @@
 using AirChat.Contract;
 using System.Collections.Generic;
 
+// this session should be from your repository pattern
 List<Message> session = [];
 
 var builder = WebApplication.CreateBuilder(args);
