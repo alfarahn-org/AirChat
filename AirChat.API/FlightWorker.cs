@@ -1,10 +1,10 @@
-namespace AirChat.Worker
+﻿namespace AirChat.API
 {
-    public class Worker : BackgroundService
+    public class FlightWorker : BackgroundService
     {
-        private readonly ILogger<Worker> _logger;
+        private readonly ILogger<FlightWorker> _logger;
 
-        public Worker(ILogger<Worker> logger)
+        public FlightWorker(ILogger<FlightWorker> logger)
         {
             _logger = logger;
         }

@@ -1,5 +1,6 @@
 using AirChat.Contract;
 using System.Collections.Generic;
+using AirChat.API;
 
 // this session should be from your repository pattern
 List<Message> session = [];
@@ -14,6 +15,7 @@ builder.Services.AddCors(options =>
         policy.WithOrigins("*");
     });
 });
+builder.Services.AddHostedService<FlightWorker>();
 
 var app = builder.Build();
 app.UseSwagger();
