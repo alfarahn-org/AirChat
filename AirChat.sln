@@ -9,7 +9,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AirChat.API", "AirChat.API\
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AirChat.ServiceClient", "AirChat.ServiceClient\AirChat.ServiceClient.csproj", "{408AFF33-2847-4F55-B685-9548C8532848}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AirChat.Frontend", "AirChat.Frontend\AirChat.Frontend.csproj", "{E8EC7A97-A388-495E-91D7-9FBAC4467C57}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AirChat.Frontend", "AirChat.Frontend\AirChat.Frontend.csproj", "{E8EC7A97-A388-495E-91D7-9FBAC4467C57}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
