@@ -2,6 +2,7 @@
 @using LeafletForBlazor
 @using Microsoft.AspNetCore.SignalR.Client
 
+<h2>@DataReceived</h2>
 <h3>Map</h3>
 <button @onclick="onClickRun">Run</button> //launch moving points
 <RealTimeMap @ref="realTimeMap"
@@ -10,6 +11,7 @@
              Parameters="@parameters"></RealTimeMap>
 
 @code {
+    string DataReceived = "";
     RealTimeMap? realTimeMap; // reference to map control
     HubConnection hubConnection;
     RealTimeMap.LoadParameters parameters = new RealTimeMap.LoadParameters() // general map settings
@@ -32,6 +34,8 @@
         hubConnection.On<string>("SendFlightCoordinate", (data) =>
         {
             Console.WriteLine(data);
+            DataReceived = data;
+            StateHasChanged();
         });
     }
 
