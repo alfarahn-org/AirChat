@@ -31,7 +31,7 @@
             .Build();
 
         await hubConnection.StartAsync();
-        hubConnection.On<string>("SendFlightCoordinate", (data) =>
+        hubConnection.On<string,string,int>("SendFlightCoordinate", (data,country,popluation) =>
         {
             Console.WriteLine(data);
             DataReceived = data;

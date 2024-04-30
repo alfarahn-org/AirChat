@@ -17,7 +17,7 @@ namespace AirChat.API
         {
             while (!stoppingToken.IsCancellationRequested)
             {
-                await _flightHub.Clients.All.SendAsync("SendFlightCoordinate", "Hello From Worker : " + DateTime.Now);
+                await _flightHub.Clients.All.SendAsync("SendFlightCoordinate", "Hello From Worker : " + DateTime.Now,"Sweden",10);
                 if (_logger.IsEnabled(LogLevel.Information))
                 {
                     await Console.Out.WriteLineAsync("test worker");
