@@ -4,9 +4,18 @@
 
 
 <h3>Map</h3>
-<RealTimeMap height="460px" width="620px"></RealTimeMap>
+<RealTimeMap Parameters="parameters" height="460px" width="620px"></RealTimeMap>
 
 
 @code {
+    RealTimeMap.LoadParameters parameters = new RealTimeMap.LoadParameters()  //general map settings
+        {
+            location = new RealTimeMap.Location()
+            {
+                latitude = 25.4501715,
+                longitude = 45.1107672,
+            },
+            zoom_level = 18
+        };
 
 }
