@@ -1,6 +1,7 @@
 using AirChat.Contract;
 using System.Collections.Generic;
 using AirChat.API;
+using Microsoft.AspNetCore.Builder;
 
 // this session should be from your repository pattern
 List<Message> session = [];
@@ -16,6 +17,7 @@ builder.Services.AddCors(options =>
     });
 });
 builder.Services.AddHostedService<FlightWorker>();
+builder.Services.AddSignalR();
 
 var app = builder.Build();
 app.UseSwagger();
@@ -37,5 +39,7 @@ app.MapPost("/messages", (Message msg) =>
     session.Add(msg);
     return msg;
 });
+
+app.MapHub<FlightHub>(nameof(FlightHub));
 
 app.Run();

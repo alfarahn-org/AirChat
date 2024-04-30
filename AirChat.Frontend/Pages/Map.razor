@@ -1,5 +1,6 @@
 ﻿@page "/Map"
 @using LeafletForBlazor
+@using Microsoft.AspNetCore.SignalR.Client
 
 <h3>Map</h3>
 <button @onclick="onClickRun">Run</button> //launch moving points
@@ -10,6 +11,7 @@
 
 @code {
     RealTimeMap? realTimeMap; // reference to map control
+    HubConnection hubConnection;
     RealTimeMap.LoadParameters parameters = new RealTimeMap.LoadParameters() // general map settings
         {
             zoom_level = 6, // Adjusted for a broader view
@@ -19,6 +21,19 @@
                 longitude = 46.6753, // Riyadh's longitude
             }
         };
+
+    protected override async Task OnInitializedAsync()
+    {
+        hubConnection = new HubConnectionBuilder()
+            .WithUrl("https://localhost:7155/FlightHub")
+            .Build();
+
+        await hubConnection.StartAsync();
+        hubConnection.On<string>("SendFlightCoordinate", (data) =>
+        {
+            Console.WriteLine(data);
+        });
+    }
 
     // Start and end coordinates
     List<double> riyadh = new List<double>() { 24.7136, 46.6753 }; // Riyadh, Saudi Arabia
