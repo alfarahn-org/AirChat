@@ -1,0 +1,6 @@
+@AirChat.API.OpenTelemetry_HostAddress = http://localhost:5152
+
+GET {{AirChat.API.OpenTelemetry_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
