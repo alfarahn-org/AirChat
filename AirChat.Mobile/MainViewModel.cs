@@ -22,7 +22,7 @@ public class MainViewModel : INotifyPropertyChanged
 
     public MainViewModel()
     {
-        _client = new AirChatServiceClient(new HttpClient { BaseAddress = new Uri("https://127.0.0.1:7155") }); ;  
+        _client = new AirChatServiceClient(new HttpClient { BaseAddress = new Uri("https://localhost:7155") }); ;
     }
 
     string _username;
@@ -58,7 +58,15 @@ public class MainViewModel : INotifyPropertyChanged
 
     public async Task SendMessageAsync()
     {
-        await _client.SendMessageAsync(Username, Message);
+        try
+        {
+            await _client.SendMessageAsync(Username, Message);
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine(ex.Message);
+            App.Current.MainPage.DisplayAlert("Error", ex.Message, "OK");
+        }
     }
 }
 
